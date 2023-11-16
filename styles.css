@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.cells-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 7px;
+}
+
+.cell {
+    height: 150px;
+    width: 150px;
+    background-color: aqua;
+    border: 2px black solid;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.lol {
+    background-color:rgba(108, 108, 109, 0.5);
+}
