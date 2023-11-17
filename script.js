@@ -1,5 +1,7 @@
-let wins = 0
+let wins = JSON.parse(localStorage.getItem('wins'))
 
+document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins=${wins ? wins : '0'}</span>
+<button class="Reset-Wins-Button">Reset Wins</button>`
 const cellsContainer = document.querySelector('.cells-container');
 
 document.querySelector('.ShowWin').classList.add('displayNone')
@@ -79,12 +81,12 @@ cells.forEach((cell, i) => {
 
     cell.classList.add('active')
     cell.classList.add('non-pointer-events');
+
     cell.addEventListener('click', () =>{
 
         const name = cell.dataset.name
         cell.classList.add('non-pointer-events')
         showedCellsList.push(name)
-        
         cell.classList.remove('active')
         
         if(showedCellsList.length === 2) {
@@ -92,12 +94,13 @@ cells.forEach((cell, i) => {
                 cells.forEach((cell) => {
                     cell.classList.add('non-pointer-events')
                 })
+                
                 setTimeout(()=>{
                     showedCellsList.forEach((option) => {
                     document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
                     item.classList.add('wrong')
                     })})
-                },700)
+                },500)
                 setTimeout(() => {
                 showedCellsList.forEach((option) => {
                 document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
@@ -108,20 +111,55 @@ cells.forEach((cell, i) => {
                 cells.forEach((cell) => {
                     cell.classList.remove('non-pointer-events')
                 })
+
+                hitOptions.forEach((option)=>{
+                    document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
+                        item.classList.add('non-pointer-events')
+                    })
+                })
+
                  showedCellsList = []
+                 
                 },1500)
+                
+                console.log(hitOptions)
             } else if(showedCellsList[0] === showedCellsList[1]){
-                console.log('active')
+                cells.forEach((cell) => {
+                    cell.classList.add('non-pointer-events')
+                })
+                setTimeout(()=>{
+                    showedCellsList.forEach((option) => {
+                    document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
+                    item.classList.add('correct')
+                    })})
+                },200)
+                setTimeout(() => {
+                showedCellsList.forEach((option) => {
+                document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
+                    item.classList.remove('correct')
+                    showedCellsList = [];
+                })
+                })
+                cells.forEach((cell) => {
+                    cell.classList.remove('non-pointer-events')
+                })
+                hitOptions.forEach((option)=>{
+                    document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
+                        item.classList.add('non-pointer-events')
+                    })
+                })
+                },900)
+
                 hitOptions.push(showedCellsList)
                 hitOptions.forEach((hitOption) => {
                 document.querySelectorAll(`.js-cell-${hitOption}`).forEach((item) => {
                     item.classList.remove('active')
-                    console.log('nice')
                 })
+                
                 })
-                showedCellsList = [];
+               
                 checkWin()
-                console.log(hitOptions.length)
+                console.log(hitOptions)
             }
         }
     })
@@ -155,10 +193,19 @@ document.querySelector('.resetButton').addEventListener('click', ()=> {
     function checkWin(){
         if(hitOptions.length === 8) {
             document.querySelector('.ShowWin').classList.remove('displayNone')
-            wins++
-             saveWinsToLocalStorage ()
+            wins += 1;
+             saveWinsToLocalStorage (wins)
+             
         } 
+        document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins=${wins ? wins : '0'}</span>
+        <button class="Reset-Wins-Button">Reset Wins</button>`
     }
+
+    document.querySelector('.Reset-Wins-Button').addEventListener('click',() => {
+        wins = 0;
+        saveWinsToLocalStorage (wins)
+        checkWin()
+    })
         
 function shuffleArray(array) {
 
@@ -171,7 +218,7 @@ function shuffleArray(array) {
     
 
   function saveWinsToLocalStorage () {
-    localStorage.setItem('Wins', wins)
+    localStorage.setItem('wins', JSON.stringify(wins));
   }
 
 
