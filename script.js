@@ -6,57 +6,7 @@ const cellsContainer = document.querySelector('.cells-container');
 
 document.querySelector('.ShowWin').classList.add('displayNone')
 
-let options = [
-    {
-    optionName:'Speedwagon',
-    Image:'resources/speedwagon.jpg',
-    },{
-    optionName:'Speedwagon',
-    Image:'resources/speedwagon.jpg',
-    },{
-    optionName:'Capibara',
-    Image:'resources/capibara.jpg',
-    },{
-    optionName:'Capibara',
-    Image:'resources/capibara.jpg',
-    },{
-    optionName:'Sylphie',
-    Image:'resources/Syphiette.jpg',
-    },{
-    optionName:'Sylphie',
-    Image:'resources/Syphiette.jpg',
-    },{
-    optionName:'Asuna',
-    Image:'resources/asuna.jpg',
-    },{
-    optionName:'Asuna',
-    Image:'resources/asuna.jpg',
-    },{
-    optionName:'Shoko',
-    Image:'resources/Shoko.jpg',
-    },{
-    optionName:'Shoko',
-    Image:'resources/Shoko.jpg',
-    },{
-    optionName:'Yumeko',
-    Image:'resources/yumeko.jpg',
-    },{
-    optionName:'Yumeko',
-    Image:'resources/yumeko.jpg',
-    },{
-    optionName:'Hayase',
-    Image:'resources/hayase.jpg',
-    },{
-    optionName:'Hayase',
-    Image:'resources/hayase.jpg',
-    },{
-    optionName:'Mai',
-    Image:'resources/Mai.png',
-    },{
-    optionName:'Mai',
-    Image:'resources/Mai.png',
-    },
-]
+
           
  let randomizeOptions  = shuffleArray(options);
 
@@ -173,6 +123,19 @@ document.querySelector('.resetButton').addEventListener('click', ()=> {
     gameRunning = false;
     
 })
+document.querySelector('.changeModeButton').addEventListener('click', ()=>{
+    document.querySelector('.difficult-change-popup').classList.toggle('displayBlock')
+})
+document.querySelector('.easy-mode').addEventListener('click', ()=>  {
+    modeOption = 1;
+    saveWinsToLocalStorage(modeOption)
+    location.reload()
+})
+document.querySelector('.medium-mode').addEventListener('click', ()=>  {
+    modeOption = 2;
+    saveWinsToLocalStorage(modeOption)
+    location.reload()
+})
 
 
     function startGame() {
@@ -191,11 +154,11 @@ document.querySelector('.resetButton').addEventListener('click', ()=> {
     }
 
     function checkWin(){
-        if(hitOptions.length === 8) {
+        console.log(winCondition)
+        if(hitOptions.length === winCondition) {
             document.querySelector('.ShowWin').classList.remove('displayNone')
             wins += 1;
-             saveWinsToLocalStorage (wins)
-             
+             saveWinsToLocalStorage (wins)  
         } 
         document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins=${wins ? wins : '0'}</span>
         <button class="Reset-Wins-Button">Reset Wins</button>`
@@ -219,8 +182,10 @@ function shuffleArray(array) {
 
   function saveWinsToLocalStorage () {
     localStorage.setItem('wins', JSON.stringify(wins));
+    localStorage.setItem('modeOption', JSON.stringify(modeOption));
   }
 
 
 
 
+console.log(options)

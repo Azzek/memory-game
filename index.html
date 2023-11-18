@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <div class="header">
@@ -15,7 +16,7 @@
         <div class="stats"></div>
         <div class="header-right-section">
             <a href="https://github.com/Azzek"><button>My Github <img src="resources/github.png"/></button></a>
-            <button>Select Difficult mode</button>
+            <button class="changeModeButton">Change Difficult mode</button>
         </div>
     </div>
     <img class="logo" src="resources/Logo.png"/>
@@ -25,6 +26,12 @@
     <button class="controlButtons startgameButton">Start Game</button>
     <button class=" controlButtons resetButton">Reset Game</button>
     <span class="signature">Made By --Azzek</span>
-    <script src="script.js"></script>
+    <div class="difficult-change-popup">
+        <button class="easy-mode">easy mode</button>
+        <button class="medium-mode">medium mode</button>
+        <button class="hard-mode">hardmode</button>
+    </div>
+    <script src="data/waifus.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
