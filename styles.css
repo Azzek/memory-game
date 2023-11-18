@@ -11,9 +11,25 @@
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding-top: 100px;
+    width: 100%;
     }
 
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 40px;
+        height: 8px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: rgb(0, 0, 0);
+        margin-right: 20px;
+        border-radius: 10px;
+    }
 
     .stats {
         border: 3px black solid;
@@ -39,7 +55,7 @@
         .stats button {
             font-size: 25px;
             font-weight: 600;
-            border: 3px rgb(86, 161, 165) solid;
+            border:1px rgb(86, 161, 165) solid;
             border-radius: 40px;
             margin-left: 15px;
             background-color: rgb(203, 241, 245);
@@ -66,6 +82,7 @@
         justify-content: space-between;
         background-color: rgb(113, 201, 206);
         z-index: 2;
+
         
 
     }
@@ -116,10 +133,10 @@
         width: 20px;
     }
     .logo {
-        width: 200px;
+        width: 100px;
         position: absolute;
         left: 50px;
-        top: 10px;
+        top: 27px;
         z-index: -1;
     }
     @keyframes winAnimation {
@@ -261,7 +278,7 @@
 }
 .cell.active {
     background-color:rgb(4, 4, 5);
-    filter: brightness(0.5);
+    filter: brightness(0);
     transition: 0.6s;
 }
 .displayBlock {
@@ -285,4 +302,104 @@
     bottom: 10px;
     left: 10px;
     color: rgb(51, 51, 51);
+}
+
+
+
+
+
+
+@media(max-width:1250px) {
+    .header-right-section button {
+        padding: 5px 5px;
+        border-radius: 40px;
+        font-size: 13px;
+        font-weight: 560;
+    }
+    .header-left-section {
+        margin-left: 5px;
+    }
+    
+}
+@media(max-width:1060px) {
+    .cell {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media(max-width:1035px) {
+    
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translateY(19px);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translateY(-19px);
+    }
+    .header-right-section button {
+        padding: 5px 9px;
+        border-radius: 40px;
+        font-size: 16px;
+        font-weight: 560;
+    }
+    .header-right-section {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 19vw;
+        height: 24vh;
+        background-color: rgba(203, 241, 245, 0.938);
+        border-radius: 22px;
+        top: -210px;
+        right: -10px;
+    }
+    .header-right-section.active {
+        right: -10px;
+        top: 40px;
+        transition: 0.7s;
+    }
+    .changeModeButton {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media(max-width:960px) {
+    .cell {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+@media(max-width:790px) {
+    .cell {
+        width: 100px;
+        height: 100px;
+    }
+}
+@media(max-width:690px) {
+    .cell {
+        width: 85px;
+        height: 85px;
+    }
+}
+@media(max-width:575px) {
+    .cells-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+@media(min-width:1060px)  {
+    .cell {
+        width: 140px;
+        height: 140px;
+    }
+    
 }

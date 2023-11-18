@@ -56,6 +56,7 @@ let options = [
 switch (modeOption) {
     case 1:
         document.querySelector('.cells-container').style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
+        document.querySelector('body').style.paddingTop = "100px"
         winCondition = 8;
      options = [
     {
@@ -112,6 +113,7 @@ break;
 
 case 2:
     document.querySelector('.cells-container').style.gridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr';
+    document.querySelector('body').style.paddingTop = "150px"
     winCondition = 15;
      options = [
     {

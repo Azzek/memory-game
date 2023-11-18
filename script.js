@@ -115,6 +115,12 @@ cells.forEach((cell, i) => {
     })
 })
 
+// CORE CORE GAME CORE 
+
+
+// BUTTONS EVENT LISTENERS BUTTONS EVENT LISTENERS
+// BUTTONS EVENT LISTENERS BUTTONS EVENT LISTENERS
+
 document.querySelector('.startgameButton').addEventListener('click', ()=>{
     startGame()
 })
@@ -136,8 +142,16 @@ document.querySelector('.medium-mode').addEventListener('click', ()=>  {
     saveWinsToLocalStorage(modeOption)
     location.reload()
 })
+document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.hamburger').classList.toggle('active')
+    document.querySelector('.header-right-section').classList.toggle('active')
+})
+// BUTTONS EVENT LISTENERS BUTTONS EVENT LISTENERS
+// BUTTONS EVENT LISTENERS BUTTONS EVENT LISTENERS
 
 
+// FUNCTIONS FUNCTIONS  FUNCTIONS 
+// FUNCTIONS FUNCTIONS  FUNCTIONS 
     function startGame() {
         if(!gameRunning){
             document.querySelectorAll('.cell').forEach((cell) => {
@@ -186,6 +200,6 @@ function shuffleArray(array) {
   }
 
 
+// FUNCTIONS FUNCTIONS  FUNCTIONS 
+// FUNCTIONS FUNCTIONS  FUNCTIONS 
 
-
-console.log(options)
