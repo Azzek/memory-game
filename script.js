@@ -52,11 +52,11 @@ cells.forEach((cell, i) => {
                     })})
                 },500)
                 setTimeout(() => {
-                showedCellsList.forEach((option) => {
-                document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
+                    showedCellsList.forEach((option) => {
+                    document.querySelectorAll(`.js-cell-${option}`).forEach((item) => {
                     item.classList.remove('wrong')
                     item.classList.add('active')
-                })
+                    })
                 })
                 cells.forEach((cell) => {
                     cell.classList.remove('non-pointer-events')
@@ -72,7 +72,6 @@ cells.forEach((cell, i) => {
                  
                 },1500)
                 
-                console.log(hitOptions)
             } else if(showedCellsList[0] === showedCellsList[1]){
                 cells.forEach((cell) => {
                     cell.classList.add('non-pointer-events')
@@ -109,7 +108,6 @@ cells.forEach((cell, i) => {
                 })
                
                 checkWin()
-                console.log(hitOptions)
             }
         }
     })
@@ -168,14 +166,17 @@ document.querySelector('.hamburger').addEventListener('click', () => {
     }
 
     function checkWin(){
-        console.log(winCondition)
         if(hitOptions.length === winCondition) {
             document.querySelector('.ShowWin').classList.remove('displayNone')
             wins += 1;
-             saveWinsToLocalStorage (wins)  
+             saveWinsToLocalStorage (wins)
+             document.querySelectorAll('.cell').forEach(item => {
+                    item.innerHTML = `<img src="resources/Winninggif.gif"></img>`
+             });
+             
+             
         } 
-        document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins=${wins ? wins : '0'}</span>
-        <button class="Reset-Wins-Button">Reset Wins</button>`
+        
     }
 
     document.querySelector('.Reset-Wins-Button').addEventListener('click',() => {

@@ -278,7 +278,7 @@
 }
 .cell.active {
     background-color:rgb(4, 4, 5);
-    filter: brightness(0);
+    filter: brightness(0.5);
     transition: 0.6s;
 }
 .displayBlock {
@@ -398,8 +398,12 @@
 }
 @media(min-width:1060px)  {
     .cell {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
+    }
+    .cell img {
+        width: 160px;
+        height: 160px;
     }
     
 }
