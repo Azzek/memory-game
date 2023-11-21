@@ -343,9 +343,6 @@ function shuffleArray(array) {
     return array.sort(compareRandom);
   }
  
-
-
-
   function game() {
     generateGameboardHTML()
     if (hardmode) {
@@ -374,6 +371,7 @@ function shuffleArray(array) {
         cell.classList.add('item')
         cell.addEventListener('click', () => {
             cell.classList.add("cellOpen")
+            console.log(options.length)
             if(document.querySelectorAll(".cellOpen").length > 1) {
                 setTimeout(()=>{
                     if(document.querySelectorAll(".cellOpen")[0].innerHTML == document.querySelectorAll(".cellOpen")[1].innerHTML) {
@@ -382,20 +380,21 @@ function shuffleArray(array) {
 
                         document.querySelectorAll(".cellOpen")[1].classList.remove("cellOpen")
                         document.querySelectorAll(".cellOpen")[0].classList.remove("cellOpen")
-                    }       
-                    else if(document.querySelectorAll('.matchMedia').length == options.length) { 
+                        console.log(document.querySelectorAll('.matchCells').length)
+                    }   else {
+                        document.querySelectorAll(".cellOpen")[1].classList.remove("cellOpen")
+                        document.querySelectorAll(".cellOpen")[0].classList.remove("cellOpen")
+                        }    
+                        if(document.querySelectorAll('.matchCells').length == options.length) { 
                         document.querySelector('.ShowWin').classList.add('displayBlock')
                         wins += 1;
-                         document.querySelectorAll('.cell').forEach(item => {
-                                item.innerHTML = `<img src="resources/Winninggif.gif"></img>`
+                        document.querySelectorAll('.cell').forEach(item => {
+                        item.innerHTML = `<img src="resources/Winninggif.gif"></img>`
                          });
                          
                          stopInterval()
-                         saveWinsToLocalStorage (wins)
-                    } else {
-                        document.querySelectorAll(".cellOpen")[1].classList.remove("cellOpen")
-                        document.querySelectorAll(".cellOpen")[0].classList.remove("cellOpen")
-                    }
+                         saveWinsToLocalStorage (wins)                
+                        } 
                 },500)
             }
         })
