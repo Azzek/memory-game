@@ -14,7 +14,7 @@ switch (modeOption) {
         document.querySelector('.cells-container').style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
         document.querySelector('body').style.paddingTop = "100px"
         winCondition = 8;
-     options = [
+    options = [
     {
     optionName:'Speedwagon',
     Image:'resources/speedwagon.jpg',
@@ -71,7 +71,7 @@ case 2:
     document.querySelector('.cells-container').style.gridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr';
     document.querySelector('body').style.paddingTop = "150px"
     winCondition = 15;
-     options = [
+    options = [
     {
     optionName:'Speedwagon',
     Image:'resources/speedwagon.jpg',
@@ -338,12 +338,15 @@ cellsContainer.innerHTML = cellHTML
 
 function shuffleArray(array) {
     function compareRandom() {
-      return Math.random() - 0.5;
+    return Math.random() - 0.5;
     }
     return array.sort(compareRandom);
-  }
- 
-  function game() {
+}
+
+
+
+
+function game() {
     generateGameboardHTML()
     if (hardmode) {
         intervalId = setInterval(() => {
@@ -359,9 +362,9 @@ function shuffleArray(array) {
                     cells.forEach((cell) => {
                         cell.classList.add('non-pointer-events')
                     })
-             })
-             document.querySelector('.ShowLose').classList.remove('displayNone');
-             clearInterval(intervalId)
+            })
+            document.querySelector('.ShowLose').classList.remove('displayNone');
+            clearInterval(intervalId)
             }
             
         },1000)
@@ -371,7 +374,6 @@ function shuffleArray(array) {
         cell.classList.add('item')
         cell.addEventListener('click', () => {
             cell.classList.add("cellOpen")
-            console.log(options.length)
             if(document.querySelectorAll(".cellOpen").length > 1) {
                 setTimeout(()=>{
                     if(document.querySelectorAll(".cellOpen")[0].innerHTML == document.querySelectorAll(".cellOpen")[1].innerHTML) {
@@ -380,28 +382,27 @@ function shuffleArray(array) {
 
                         document.querySelectorAll(".cellOpen")[1].classList.remove("cellOpen")
                         document.querySelectorAll(".cellOpen")[0].classList.remove("cellOpen")
-                        console.log(document.querySelectorAll('.matchCells').length)
-                    }   else {
-                        document.querySelectorAll(".cellOpen")[1].classList.remove("cellOpen")
-                        document.querySelectorAll(".cellOpen")[0].classList.remove("cellOpen")
-                        }    
-                        if(document.querySelectorAll('.matchCells').length == options.length) { 
+                    }       
+                    else if(document.querySelectorAll('.matchMedia').length == options.length) { 
                         document.querySelector('.ShowWin').classList.add('displayBlock')
                         wins += 1;
                         document.querySelectorAll('.cell').forEach(item => {
-                        item.innerHTML = `<img src="resources/Winninggif.gif"></img>`
-                         });
-                         
-                         stopInterval()
-                         saveWinsToLocalStorage (wins)                
-                        } 
+                                item.innerHTML = `<img src="resources/Winninggif.gif"></img>`
+                        });
+                        
+                        stopInterval()
+                        saveWinsToLocalStorage (wins)
+                    } else {
+                        document.querySelectorAll(".cellOpen")[1].classList.remove("cellOpen")
+                        document.querySelectorAll(".cellOpen")[0].classList.remove("cellOpen")
+                    }
                 },500)
             }
         })
     })
     
 }
-  
+
 generateGameboardHTML()
 game()
 
