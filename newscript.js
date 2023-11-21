@@ -1,5 +1,3 @@
-
-
 const statsElement = document.querySelector('.stats');
 const showWinElement = document.querySelector('.ShowWin');
 const showLoseElement = document.querySelector('.ShowLose');
@@ -10,17 +8,21 @@ const difficultChangePopup = document.querySelector('.difficult-change-popup');
 const modeButtons = document.querySelectorAll('.mode-button');
 const hamburger = document.querySelector('.hamburger');
 
+
+
+
 if(hardmode) {
-    document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins=${wins ? wins : '0'}</span>
+    document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins = ${wins ? wins : ' 0'}</span>
     <button class="Reset-Wins-Button">Reset Wins</button> <div class="time">Max-time:2min</div>`
 } else {
-    document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins=${wins ? wins : '0'}</span>
+    document.querySelector('.stats').innerHTML = `<span class="showWinsCount">Wins = ${wins ? wins : ' 0'}</span>
     <button class="Reset-Wins-Button">Reset Wins</button>`
 }
 
+
+
 document.querySelector('.resetButton').addEventListener('click', () => {
     game()
-    document.querySelector('.ShowWin').classList.remove('displayBlock')   
 })
 document.querySelector('.changeModeButton').addEventListener('click', ()=>{
     document.querySelector('.difficult-change-popup').classList.toggle('displayBlock')
@@ -49,6 +51,7 @@ document.querySelector('.Reset-Wins-Button').addEventListener('click',() => {
     saveToLocalStorage(wins)
     checkWin()
 })
+
 
 function stopInterval() {
     clearInterval(intervalId)
