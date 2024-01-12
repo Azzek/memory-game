@@ -1,11 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-*{
-    padding:0;
-    margin:0;
-}
-
     body {
     display: flex;
     background-color: rgb(227, 253, 253);
@@ -15,8 +7,10 @@
     -webkit-box-shadow: inset 0px 8px 71px -9px rgba(2, 16, 175, 1);
     -moz-box-shadow: inset 0px 8px 71px -9px rgba(2, 16, 175, 1);
     box-shadow: inset 0px 8px 71px -9px rgba(2, 16, 175, 1);
-    height: 91vh;
-    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 100%;
     }
 
@@ -39,18 +33,16 @@
 
     .stats {
         border: 3px #71C9CE solid;
-        border-radius: 40px 40px 40px 40px;
+        border-radius: 0px 0px 40px 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        column-gap:2rem;
-        height:50px;
         font-size: 30px;
         font-weight: 600;
         width: auto;
         padding: 0px  14px;
         position: absolute;
-        top: 46.75%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         -webkit-box-shadow: inset 0px -7px 13px -4px rgba(66, 68, 90, 1);
@@ -84,7 +76,7 @@
     .header {
         display: flex;
         width: 100%;
-        height: 70px;
+        height: auto;
         border: 2px rgb(55, 109, 112) solid;
         border-radius: 0px 0px 40px 40px;
         position: fixed;
@@ -117,10 +109,6 @@
         font-weight: 560;
         
     }
-
-    .header-right-section > button{
-        max-height:40px;
-    }
     .header-right-section a {
         text-decoration: none;
     }
@@ -133,7 +121,7 @@
         transition: 0.7s;
     }
 
-
+  
     .header-right-section img {
         width: 25px;
         margin-left: 3px;
@@ -144,7 +132,6 @@
         font-weight: 600;
         color: rgb(18, 74, 77);
         margin-left: 5%;
-        margin-top:.35rem;
     }
     .github {
         width: 20px;
@@ -153,7 +140,7 @@
         width: 100px;
         position: absolute;
         left: 50px;
-        top: 50px;
+        top: 27px;
         z-index: -1;
     }
     @keyframes winAnimation {
@@ -194,7 +181,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 7px;
     margin-top: 10px;
-    margin-bottom:2rem;
     position: relative;
 }
 
@@ -258,8 +244,8 @@
     padding: 13px 15px;
     border-radius: 30px;
     position: absolute;
-        top: 15%;
-        right: -1.5%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
     display: none;
 }
@@ -381,30 +367,5 @@
     .changeModeButton {
         display: flex;
         flex-direction: column;
-    }
-}
-
-@media (max-width:1024px)
-{
-    .stats{
-        left:55%;
-    }
-
-    .header-right-section{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction:row;
-
-        top:-50%;
-        right:-50%;
-        margin-top:1rem;
-        height:50px;
-        width:290px;
-    }
-
-    .difficult-change-popup{
-        top:16%;
-
     }
 }

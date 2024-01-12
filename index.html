@@ -1,83 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Made by Azzek -->
-    <head>
-        <title>Waifu Memory game</title>
-
-        <link rel="stylesheet" href="styles.css">
-
-        <link rel="shortcut icon" href="./resources/github.png" type="image/x-icon">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <meta charset="UTF-8">
-    </head>
-
-        <body>
-            <div class="header">
-
-                <div class="header-left-section">
-                    <span>
-                        Waifu Memory Game
-                    </span>
-                </div>
-
-                <div class="stats"></div>
-
-                <div class="header-right-section">
-                    <a href="https://github.com/Azzek">
-                        <button>
-                            My Github 
-                            <img src="resources/github.png"/>
-                        </button>
-                    </a>
-
-                    <button class="changeModeButton">
-                        Change <span> Difficult mode </span>
-                    </button>
-                </div>
-
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-
-            </div>
-
-            <img class="logo" src="resources/Logo.png"/>
-
-            <div class="ShowWin">
-                <h1>You Win!
-
-                </h1>
-            </div>
-
-            <div class="ShowLose">
-                <h1>
-                    You Lose!
-                </h1>
-            </div>
-
-            <div class="cells-container"></div>
-
-            <button class=" controlButtons resetButton">
-                Reset Game
-            </button>
-
-            <span class="signature">
-                Made By --Azzek
-            </span>
-
-            <div class="difficult-change-popup">
-                <button class="easy-mode">easy mode</button>
-                <button class="medium-mode">medium mode</button>
-                <button class="hard-mode">hardmode</button>
-            </div>
-
-            <script src="data/renderGameboard.js"></script>
-            <script type="module" src="newscript.js"></script>
-
-        </body>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="header">
+        <div class="header-left-section"><span>Waifu Memory Game</span></div>
+        <div class="stats"></div>
+        <div class="header-right-section">
+            <a href="https://github.com/Azzek"><button>My Github <img src="resources/github.png"/></button></a>
+            <button class="changeModeButton">Change <span>Difficult mode</span></button>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+    <img class="logo" src="resources/Logo.png"/>
+    <div class="ShowWin"><h1>You Win!</h1></div>
+    <div class="ShowLose"><h1>You Lose!</h1></div>
+    <div class="cells-container">
+    </div>
+    <button class=" controlButtons resetButton">Reset Game</button>
+    <span class="signature">Made By --Azzek</span>
+    <div class="difficult-change-popup">
+        <button class="easy-mode">easy mode</button>
+        <button class="medium-mode">medium mode</button>
+        <button class="hard-mode">hardmode</button>
+    </div>
+    <script src="data/renderGameboard.js"></script>
+    <script type="module" src="newscript.js"></script>
+</body>
 </html>
